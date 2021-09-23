@@ -71,7 +71,7 @@ def calculate(point, polygonPoints):
     return line, d
 
 
-def showPlot(point, polygonPoints, line):
+def showPlot(point, polygonPoints, line, title):
     plt.scatter(point.x, point.y, color="red")
 
     for polygonPoint in polygonPoints:
@@ -85,6 +85,7 @@ def showPlot(point, polygonPoints, line):
 
     plt.plot([line.p1.x, line.p2.x], [line.p1.y, line.p2.y])
 
+    plt.title(title)
     plt.show()
 
 
@@ -98,7 +99,8 @@ if __name__ == '__main__':
 
     line, dstnc = calculate(point, polygonPoints)
 
-    print(f'Line {line.__str__()}\nDistance from point {point.__str__()} to polygon = {dstnc}')
+    title = f'Distance from point {point.__str__()} to polygon = {dstnc}'
+    print(f'Line {line.__str__()}\n{title}')
 
     # install: sudo apt-get install python3-tk
-    showPlot(point, polygonPoints, line)
+    showPlot(point, polygonPoints, line, title)
